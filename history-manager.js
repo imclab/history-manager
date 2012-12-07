@@ -6,16 +6,16 @@
 var HistoryManager = {};
 
 /**
- * A function to call when the history changes.
+ * An array of functions to call when the history changes.
  *
- * @type {Function}
+ * @type {Array}
  */
 HistoryManager.callbackFunctionArray = [];
 
 /**
  * Sets up the class.
  *
- * @param {Function} callbackFunction the functon to fire
+ * @param {Function} callbackFunction a function to fire
  * 		when the "address" changes.
  */
 HistoryManager.init = function(callbackFunction) {
@@ -29,10 +29,7 @@ HistoryManager.init = function(callbackFunction) {
 }
 
 /**
- * Returns the an array of the url sections after the root.
- *
- * @param {String} s The url string
- * @return an array of the url
+ * Called everytime the history or the url hash changes.
  */
 HistoryManager.respondToUrl = function() {
   var value = window.location.hash;
@@ -59,7 +56,7 @@ HistoryManager.addListenerFunction = function(listenerFunction) {
  * Removes a function that fires when the url changes.
  *
  * @param {Number} functionIteration The iteration in the array of the
- *	function to remove.
+ *	functions to remove.
  */
 HistoryManager.removeListenerFunction = function(functionIteration) {
 	for (var i = 0; i < HistoryManager.callbackFunctionArray.length; i++) {
