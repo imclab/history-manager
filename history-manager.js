@@ -32,7 +32,7 @@ HistoryManager.init = function(callbackFunction) {
  * Called everytime the history or the url hash changes.
  */
 HistoryManager.respondToUrl = function() {
-  var value = window.location.hash;
+  	var value = window.location.hash;
 	if (window.location.hash.length < 1) {
 		value = window.location.pathname;
 	}
